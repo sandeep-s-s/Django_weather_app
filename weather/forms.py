@@ -8,7 +8,7 @@ class CityForm(forms.ModelForm):
 		fields = ['name']
 		widgets = {'name' : forms.TextInput(attrs={
 			'class':'input',
-			'placeholder':'City Name'
+			'placeholder':'City Name eg : Delhi' 
 			}
 			)
 		}

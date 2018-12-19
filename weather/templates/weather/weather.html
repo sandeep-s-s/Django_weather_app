@@ -22,8 +22,11 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                {% if form  %}
                 <div class="column is-offset-4 is-4">
+                    {% if message  %}
+                    <p style="color:red;">{{message}}</p>
+                    {% endif %}
+                    {% if form  %}
                     <form method="POST">
                         <div class="field has-addons">
                             <div class="control is-expanded">
@@ -37,10 +40,8 @@
                             </div>
                         </div>
                     </form>
+                    {% endif %}
                 </div>
-                {% else %}
-                <p style="color:red;padding-left:40%;">{{message}}</p>
-                {% endif %}
             </div>
         </div>
     </section>

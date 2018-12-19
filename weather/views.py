@@ -7,7 +7,7 @@ def index(request):
 	api_key = 'YOUR_API_KEY'
 	weather_data=[]
 	form=None
-	message=None
+	message=''
 	if api_key == "YOUR_API_KEY":
 		message="Please add your api key"
 	else :
@@ -15,7 +15,14 @@ def index(request):
 		# print(response.text);
 		form =CityForm(request.POST or None)
 		if form.is_valid():
-			form.save()
+			print(request.POST['name'])
+			city = request.POST['name']
+			response=requests.get(url.format(city)).json()
+			print(response)
+			if response['cod'] != '404':
+				form.save()
+			else :
+				message=response['message']
 		cities=City.objects.all()
 		for city in cities:
 			response=requests.get(url.format(city)).json()
@@ -32,4 +39,5 @@ def index(request):
 		'form':form,
 		'message':message
 	}
+	print(message)
 	return render(request,'weather/weather.html',context)
