@@ -1,10 +1,10 @@
 # Weather App
 
-This is a simple weather app implemented using python django framework and openweathermap api.
+Weather app implemented using django and openweathermap api.
 
 # Requirements:
 
-  - Python3
+  - Python 3
   - Django==2.1.4
 
 
